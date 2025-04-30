@@ -7,7 +7,10 @@ services:
         POSTGRES_PASSWORD: serveruser
         POSTGRES_DB: bookcenterDB
       volumes:
+      # For save DB locally
         - ./postgres-data:/var/lib/postgresql/data
+      # For get sql scripts for db init
+        - ./bookcenter-db-infra:/docker-entrypoint-initdb.d
       adminer:
         image: adminer
         ports:
