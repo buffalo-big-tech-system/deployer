@@ -2,6 +2,7 @@ version: "3"
 services:
     bookcenter-db: 
       image: postgres:latest
+      restart: always
       shm_size: 64mb
       environment:
         POSTGRES_PASSWORD: serveruser
@@ -12,6 +13,7 @@ services:
       # For get sql scripts for db init
         - ./bookcenter-db-infra:/docker-entrypoint-initdb.d
       adminer:
+        restart: always
         image: adminer
         ports:
         - 8080:8080
