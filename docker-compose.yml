@@ -1,0 +1,14 @@
+version: "3"
+services:
+    bookcenter-db: 
+      image: postgres:latest
+      shm_size: 64mb
+      environment:
+        POSTGRES_PASSWORD: serveruser
+        POSTGRES_DB: bookcenterDB
+      volumes:
+        - ./postgres-data:/var/lib/postgresql/data
+      adminer:
+        image: adminer
+        ports:
+        - 8080:8080
