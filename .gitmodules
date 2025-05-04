@@ -1,0 +1,3 @@
+[submodule "bookcenter-db-infra"]
+	path = bookcenter-db-infra
+	url = https://github.com/buffalo-big-tech-system/bookcenter-db-infra.git
