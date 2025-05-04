@@ -4,16 +4,14 @@ services:
       image: postgres:latest
       restart: always
       shm_size: 64mb
+      ports:
+      - "5444:5432"
       environment:
-        POSTGRES_PASSWORD: serveruser
+        POSTGRES_USER: admin
+        POSTGRES_PASSWORD: admin
         POSTGRES_DB: bookcenterDB
       volumes:
       # For save DB locally
         - ./postgres-data:/var/lib/postgresql/data
       # For get sql scripts for db init
         - ./bookcenter-db-infra:/docker-entrypoint-initdb.d
-      adminer:
-        restart: always
-        image: adminer
-        ports:
-        - 8080:8080
